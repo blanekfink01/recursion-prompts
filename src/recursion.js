@@ -43,11 +43,14 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-    if(n/2 === n*2){
-        return true;
-    }else{
+    if(n & 1){
         return false;
+    }else{
+        return true;
     }
+    //do something
+
+    
 };
 
 // 5. Sum all integers below a given integer.
@@ -60,6 +63,10 @@ var sumBelow = function(n) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+    let arr = [];
+    
+
+    return arr;
 };
 
 // 7. Compute the exponent of a number.
@@ -68,6 +75,15 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+    let num;
+    if(exp === 0){
+        return 1;
+    }
+    if(exp === 1){
+        return base;
+    }
+    num = base * base; //exponent times
+    return num;
 };
 
 // 8. Determine if a number is a power of two.
@@ -75,14 +91,24 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+    // if(n*n === answer){
+    //     return true
+    // }
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+    let str = ""
+    for(let i = string.length-1; i>=0;i--){
+        str = str + string[i];
+    }
+
+    return str;
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+    //use reverse
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -96,6 +122,9 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 var multiply = function(x, y) {
+    let num;
+    num = x + y; //x +x by y times
+    return num;
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -117,15 +146,26 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+    // if(str1.charAt() === str2.charAt){
+    //     return true;
+    // }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+    let arr =[];
+    arr.push(str.split(""));
+    return arr;
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function (array) {
+    let arr = [];
+    for(let i = array.length-1;i>=0;i--){
+        arr.push(array[i]);
+    }
+    return arr;
 };
 
 // 18. Create a new array with a given value and length.
@@ -138,6 +178,18 @@ var buildList = function(value, length) {
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+    let num;
+    let arr = [];
+    for(let i = 0; i<array.length;i++){
+        array[i];
+        if(array[i]===value){
+            arr.push(value);
+        }
+    
+    }
+
+
+    return arr.length;
 };
 
 // 20. Write a recursive version of map.
@@ -184,6 +236,13 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(input) {
+   
+    // for(let i = 0; i<input.length;i++){
+    //    input[i].toUpperCase();
+
+    // }
+    
+    return input;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
