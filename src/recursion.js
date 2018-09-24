@@ -139,18 +139,60 @@ var exponent = function(base, exp, i= exp, total=1) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
+var powerOfTwo = function(n, total = n) {
+    if(n === 0){
+        return false;
+    }
+    if(n === 1){
+        return true;
+    }
+    if(n< 0){
+        return false;
+    }
+    if(n === 2){
+        return true;
+    }
+    
+    if(total === 2){
+        return true;
+    }else if(total < 2){
+        return false;
+    }
+
+    total  = total/2;
 
 
-    //return powerOfTwo(n);
+    return powerOfTwo(n, total);
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+    if(string === ''){
+        return '';
+    }else{
+       return reverse (string.substring(1)) +string.charAt(0);
+       
+    }
+    
+    
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+    string = string[0].toLowerCase();
+    console.log('hello');
+    string = string.split('');
+    console.log(string);
+    
+    if(string[0] == string[string.length-1]){
+    string = string.splice(0,1);
+    string = string.splice(string.length-1,1);
+    console.log(string);
+    return true;
+    }
+
+
+    return palindrome(string);
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -163,7 +205,25 @@ var modulo = function(x, y) {
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
-var multiply = function(x, y) {
+var multiply = function(x, y, i=0, total) {
+    if(x === 0 || y===0){
+        return 0;
+    }
+    if(x<0 && y<0){
+        total = (x - x) ;
+        //increment or decrement
+    }
+    if(x<0 || y< 0){
+        total = x - x;
+        //increment or decrement
+    }
+    if(y === i){
+      return total;
+    }
+    total = x + x;
+    i++;
+
+    return multiply(x,y,i, total);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
