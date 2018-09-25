@@ -52,8 +52,7 @@ if(n<0){
 else if(n>0){
     n = n-2;
 }
-      return isEven(n);       
-
+return isEven(n);   
     
 };
 
@@ -103,7 +102,6 @@ var range = function (x, y, arr = [], i =x) {
     return range(x,y, arr, i);
 
 
-    
 };
 
 // 7. Compute the exponent of a number.
@@ -111,7 +109,9 @@ var range = function (x, y, arr = [], i =x) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp, i= exp, total=1) {
+
+var exponent = function(base, exp, i = exp, total=1) {
+    let num;
     if(exp === 0){
         return 1;
     }
@@ -163,33 +163,33 @@ var powerOfTwo = function(n, total = n) {
 
 
     return powerOfTwo(n, total);
-};
 
+};
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
     if(string === ''){
         return '';
-    }else{
-       return reverse (string.substring(1)) +string.charAt(0);
-       
     }
+    return reverse(string.substring(1)) + string.charAt(0);
+
     
-    
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
     string = string[0].toLowerCase();
-    console.log('hello');
+    //console.log('hello');
     string = string.split('');
-    console.log(string);
+    //console.log(string);
     
-    if(string[0] == string[string.length-1]){
-    string = string.splice(0,1);
-    string = string.splice(string.length-1,1);
-    console.log(string);
+    if(string === undefined){
+    
     return true;
     }
+    
+    string = string.splice(0, 1);
+    string = string.splice(string.length - 1, 1);
 
 
     return palindrome(string);
@@ -245,15 +245,26 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+    // if(str1.charAt() === str2.charAt){
+    //     return true;
+    // }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+    let arr =[];
+    arr.push(str.split(""));
+    return arr;
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function (array) {
+    let arr = [];
+    for(let i = array.length-1;i>=0;i--){
+        arr.push(array[i]);
+    }
+    return arr;
 };
 
 // 18. Create a new array with a given value and length.
@@ -266,6 +277,18 @@ var buildList = function(value, length) {
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+    let num;
+    let arr = [];
+    for(let i = 0; i<array.length;i++){
+        array[i];
+        if(array[i]===value){
+            arr.push(value);
+        }
+    
+    }
+
+
+    return arr.length;
 };
 
 // 20. Write a recursive version of map.
@@ -312,6 +335,13 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(input) {
+   
+    // for(let i = 0; i<input.length;i++){
+    //    input[i].toUpperCase();
+
+    // }
+    
+    return input;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
