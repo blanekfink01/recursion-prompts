@@ -182,14 +182,23 @@ var palindrome = function(string) {
     //console.log('hello');
     string = string.split('');
     //console.log(string);
+
+    //if ()
+
+
+
+
+
+
+
+
+    //if(string === undefined){
     
-    if(string === undefined){
+    //return true;
+    //}
     
-    return true;
-    }
-    
-    string = string.splice(0, 1);
-    string = string.splice(string.length - 1, 1);
+    //string = string.splice(0, 1);
+    //string = string.splice(string.length - 1, 1);
 
 
     return palindrome(string);
@@ -205,25 +214,42 @@ var modulo = function(x, y) {
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
-var multiply = function(x, y, i=0, total) {
-    if(x === 0 || y===0){
-        return 0;
-    }
-    if(x<0 && y<0){
-        total = (x - x) ;
-        //increment or decrement
-    }
-    if(x<0 || y< 0){
-        total = x - x;
-        //increment or decrement
-    }
-    if(y === i){
-      return total;
-    }
-    total = x + x;
-    i++;
+var multiply = function(x, y, total, i = 0) {
+    // if(x === 0 || y===0){
+    //     return 0;
+    // }
+    // if(x<0 && y<0){
+    //     total = (x - x) ;
+    //     //increment or decrement
+    // }
+    // if(x<0 || y< 0){
+    //     total = x - x;
+    //     //increment or decrement
+    // }
+    // if(y === i){
+    //   return total;
+    // }
+    // total = x + x;
+    // i++;
 
-    return multiply(x,y,i, total);
+    // return multiply(x,y,i, total);
+total = 0;
+var h = (x > y) ? x:y; // h === higher number
+var l = (x < y) ? x:y; // l === lower number
+
+if (l === 0 || h === 0) {
+    return 0;
+} 
+if (i !== h - 1) {
+    i++;
+    total += l;
+
+} 
+if (i === h - 1) {
+    return total;
+}
+
+return multiply(x, y, total, i);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -328,8 +354,35 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, fibSeq = [0,1]) {
+    var nexnum = fibSeq[fibSeq.length - 1] + fibSeq[fibSeq.length - 2];
+    fibSeq.push(nexnum);
+
+
+    if (n < 0) {
+        return null;
+    }
+    if (!n) {
+        return 0;
+    }
+
+
+    if (fibSeq.length - 2 === n) {
+        return fibSeq[n];
+    } else {
+        return nthFibo(n, fibSeq);
+    }
 };
+
+
+    // if(arr[n]){
+    //     return arr[n];
+    // }
+    // next = next+ i;
+    // i=next;
+ 
+    // arr.push(next);
+
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
@@ -395,8 +448,32 @@ var minimizeZeroes = function(array) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, i = 0) {
+    i++;
+    var el = array[i];
+    
+    if (i === array.length) {
+        return array;
+    }
+
+    if (array[0] < 0) {
+        array[0] *= -1;
+    }
+
+
+    if (el > 0 && i % 2 === 1) {
+        array[i] = array[i] * -1;
+    }
+    if (el < 0 && i % 2 === 0) {
+        array[i] *= -1;
+    }
+
+
+
+    return alternateSign(array, i);
 };
+
+
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
